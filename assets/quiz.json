@@ -1,0 +1,194 @@
+{
+    "quiz_data": [
+        {
+            "question_name": "Terletak Di Provinsi manakah Wisata Danau Toba?",
+            "answer_1": {
+                "value": "DKI Jakarta",
+                "is_answered": false
+            },
+            "answer_2": {
+                "value": "Jawa Barat",
+                "is_answered": false
+            },
+            "answer_3": {
+                "value": "Kalimantan Utara",
+                "is_answered": false
+            },
+            "answer_4": {
+                "value": "Sumatera Utara",
+                "is_answered": true
+            }
+        },
+        {
+            "question_name": "Terletak Di Kota manakah Wisata Pantai Ancol?",
+            "answer_1": {
+                "value": "Jakarta Utara",
+                "is_answered": true
+            },
+            "answer_2": {
+                "value": "Tangerang Selatan",
+                "is_answered": false
+            },
+            "answer_3": {
+                "value": "Bekasi",
+                "is_answered": false
+            },
+            "answer_4": {
+                "value": "Jakarta Barat",
+                "is_answered": false
+            }
+        },
+        {
+            "question_name": "Gunung Tertinggi yang terletak di daerah Jawa Barat adalah...",
+            "answer_1": {
+                "value": "Gunung Guntur",
+                "is_answered": false
+            },
+            "answer_2": {
+                "value": "Gunung Papandayan",
+                "is_answered": false
+            },
+            "answer_3": {
+                "value": "Gunung Ciremai",
+                "is_answered": true
+            },
+            "answer_4": {
+                "value": "Gunung Tampomas",
+                "is_answered": false
+            }
+        },
+        {
+            "question_name": "Gunung Tertinggi yang terletak di daerah Jawa Tengah adalah...",
+            "answer_1": {
+                "value": "Gunung Sumbing",
+                "is_answered": false
+            },
+            "answer_2": {
+                "value": "Gunung Slamet",
+                "is_answered": true
+            },
+            "answer_3": {
+                "value": "Gunung Sindoro",
+                "is_answered": false
+            },
+            "answer_4": {
+                "value": "Gunung Merbabu",
+                "is_answered": false
+            }
+        },
+        {
+            "question_name": "Candi terbesar di Indonesia adalah...",
+            "answer_1": {
+                "value": "Candi Prambanan",
+                "is_answered": false
+            },
+            "answer_2": {
+                "value": "Candi Mendut",
+                "is_answered": false
+            },
+            "answer_3": {
+                "value": "Candi Sewu",
+                "is_answered": false
+            },
+            "answer_4": {
+                "value": "Candi Borobudur",
+                "is_answered": true
+            }
+        },
+        {
+            "question_name": "Makanan yang berasal dari daerah Padang adalah...",
+            "answer_1": {
+                "value": "Nasi Liwet",
+                "is_answered": false
+            },
+            "answer_2": {
+                "value": "Tahu Sumedang",
+                "is_answered": false
+            },
+            "answer_3": {
+                "value": "Sate Padang",
+                "is_answered": true
+            },
+            "answer_4": {
+                "value": "Karedok",
+                "is_answered": false
+            }
+        },
+        {
+            "question_name": "Salah satu makanan yg berasal dari Cirebon, Jawa Barat adalah...",
+            "answer_1": {
+                "value": "Tahu Gejrot",
+                "is_answered": true
+            },
+            "answer_2": {
+                "value": "Tahu Sumedang",
+                "is_answered": false
+            },
+            "answer_3": {
+                "value": "Ayam Betutu",
+                "is_answered": false
+            },
+            "answer_4": {
+                "value": "Karedok",
+                "is_answered": false
+            }
+        },
+        {
+            "question_name": "Tempat wisata di Jawa Barat yang terletak di Desa Alam Endah, Kecamatan Rancabali, Kabupaten Bandung Jawa Barat yang terletak di kaki Gunung Patuha bernama...",
+            "answer_1": {
+                "value": "Green Canyon",
+                "is_answered": false
+            },
+            "answer_2": {
+                "value": "Kawah Putih",
+                "is_answered": true
+            },
+            "answer_3": {
+                "value": "Gunung Ciremai",
+                "is_answered": false
+            },
+            "answer_4": {
+                "value": "Danau Toba",
+                "is_answered": false
+            }
+        },
+        {
+            "question_name": "Candi Prambanan berasal dari Kota...",
+            "answer_1": {
+                "value": "Bandung",
+                "is_answered": false
+            },
+            "answer_2": {
+                "value": "Bekasi",
+                "is_answered": false
+            },
+            "answer_3": {
+                "value": "Sleman",
+                "is_answered": true
+            },
+            "answer_4": {
+                "value": "Magelang",
+                "is_answered": false
+            }
+        },
+        {
+            "question_name": "Gunung tertinggi di pulau jawa adalah...",
+            "answer_1": {
+                "value": "Gunung Slamet",
+                "is_answered": false
+            },
+            "answer_2": {
+                "value": "Gunung Semeru",
+                "is_answered": true
+            },
+            "answer_3": {
+                "value": "Gunung Ciremai",
+                "is_answered": false
+            },
+            "answer_4": {
+                "value": "Gunung Rinjani",
+                "is_answered": false
+            }
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "hotels": [
+        {
+            "photo": "https://ik.imagekit.io/tvlk/blog/2020/01/hotel-termewah-di-Indonesia-1-Traveloka.jpg?tr=dpr-1,w-675",
+            "name": "The Oberoi Lombok",
+            "description": "Hotel mewah di Indonesia ini menghadirkan 20 unit vila dan 50 unit paviliun dengan ukuran mulai dari 70 m2. Masing-masing memiliki pemandangan berupa taman tropis atau laut. Tempatnya yang sangat nyaman dan tenang cocok bagi kamu yang ingin menghabiskan staycation mewah sembari memanjakan diri bersama orang tersayang di sini.",
+            "location": "Lombok, NTB",
+            "price": "445.000",
+            "category": "premium",
+            "total_favorite": 2500
+        },
+        {
+            "photo": "https://ik.imagekit.io/tvlk/blog/2020/01/hotel-termewah-di-Indonesia-7.3-Traveloka.jpg?tr=dpr-1,w-675",
+            "name": "Nihi Sumba",
+            "description": "Nihi Sumba berhasil mendapat predikat #1 Hotel in The World dari majalah Travel + Leisure berturut-turut di tahun 2016 dan 2017. Berada di Pulau Sumba yang eksotis, hotel termewah di Indonesia yang satu ini menjadi salah satu resor mewah favorit bagi kalangan jetset untuk sejenak menyepi dari rutinitas. Salah satu hotel termewah yang ada di Indonesia ini mempunyai 28 vila dengan bangunan yang dibuat oleh para seniman lokal menggunakan rotan dan jati. Resor ini menyediakan lima tipe vila, yakni Marangga, Mandaka, Puncak, Haweri, dan Mamole Tree House.",
+            "location": "Sumba Barat, NTT",
+            "price": "540.000",
+            "category": "premium",
+            "total_favorite": 2700
+        }
+    ]
+}

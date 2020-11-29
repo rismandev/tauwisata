@@ -1,0 +1,76 @@
+{
+    "foods": [
+        {
+            "photo": "https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2020/05/23/2598383914.jpg",
+            "name": "Rendang",
+            "description": "Rendang adalah hidangan daging yang berasal dari suku Minangkabau di Sumatera Barat. Hidangan ini terkenal dengan kepedasannya dan prosedur memasaknya yang panjang. Ini sering dibandingkan dengan kari India karena konsistensinya dan rasa yang unik. Saat ini, rendang telah melampaui perbatasan Indonesia dan memiliki reputasi sebagai salah satu hidangan paling lezat di dunia.",
+            "location": "Minangkabau, Sumatera Barat",
+            "price": "35.000",
+            "category": "utama",
+            "total_favorite": 5200
+        },
+        {
+            "photo": "https://www.resepistimewa.com/wp-content/uploads/ayam-betutu-bali.jpg",
+            "name": "Ayam Betutu",
+            "description": "Betutu adalah lauk yang terbuat dari ayam atau bebek yang utuh yang berisi bumbu, kemudian dipanggang dalam api sekam. Betutu ini telah dikenal di seluruh kabupaten di Bali. Betutu merupakan jenis makanan tradisional daerah Bali yang bahan mentahnya berupa karkas utuh itik dan ayam.",
+            "location": "Bali",
+            "price": "65.000",
+            "category": "utama",
+            "total_favorite": 3500
+        },
+        {
+            "photo": "https://ecs7.tokopedia.net/img/cache/700/product-1/2019/3/10/374751918/374751918_90a87759-9fe2-4620-a021-5e4bf5d9b383_720_720.jpg",
+            "name": "Bebek Goreng",
+            "description": "Bebek goreng adalah makanan khas Indonesia yang dihargai karena kerenyahannya serta dagingnya yang lembut dan lezat. Bebek biasanya dipotong-potong, direbus atau dikukus, lalu digoreng hingga renyah. Sebelum digoreng, potongan-potongannya dilapisi dengan rempah-rempah seperti bawang putih, jahe, kunyit, lengkuas, atau ketumbar. Bebek goreng dimakan di seluruh negeri, namun yang terkenal datang dari Madura. Secara tradisional dihidangkan bersama dengan nasi, sayuran segar seperti mentimun atau kubis, dan sambal pedas.",
+            "location": "Madura, Jawa Timur",
+            "price": "30.000",
+            "category": "utama",
+            "total_favorite": 2500
+        },
+        {
+            "photo": "https://awsimages.detik.net.id/community/media/visual/2019/12/20/4bbe09a6-8f40-495c-a95a-cebcb0f391bc.jpeg?a=1",
+            "name": "Sate Padang",
+            "description": "Sate Padang adalah salah satu sate yang berasal dari Padang, Sumatera Barat. Ini secara tradisional dibuat dengan daging sapi, dan terdiri dari potongan-potongan daging atau jeroan yang dibumbui, ditusuk, dan kemudian dipanggang. Tusuk sate biasanya disajikan disiram dengan saus kental berwarna cokelat yang menggabungkan kaldu daging kental dengan tepung beras atau air beras dan berbagai bumbu yang tidak terlalu kuat.",
+            "location": "Padang, Sumatera Barat",
+            "price": "30.000",
+            "category": "utama",
+            "total_favorite": 5500
+        },
+        {
+            "photo": "https://doyanresep.com/wp-content/uploads/2020/04/resep-nasi-liwet.jpg",
+            "name": "Nasi Liwet",
+            "description": "Terdapat 2 Jenis Nasi Liwet yaitu Nasi Liwet Solo dan Nasi Liwet Sunda. Nasi liwet Solo makanan khas kota Solo dan merupakan kuliner asli daerah Baki, Kabupaten Sukoharjo. Nasi liwet adalah nasi gurih mirip nasi uduk, yang disajikan dengan sayur labu siam, suwiran ayam dan areh.",
+            "location": "Sukoharjo, Jawa Tengah",
+            "price": "25.000",
+            "category": "utama",
+            "total_favorite": 3500
+        },
+        {
+            "photo": "https://i1.wp.com/resepkoki.id/wp-content/uploads/2017/11/Resep-Karedok.jpg?fit=1920%2C1280&ssl=1",
+            "name": "Karedok",
+            "description": "Karedok atau keredok adalah salah satu makanan khas Sunda di Indonesia. Karedok dibuat dengan bahan-bahan sayuran mentah antara lain; mentimun, taoge, kol, kacang panjang, ubi, daun kemangi, dan terong atau leunca.",
+            "location": "Pasundan, Jawa Barat",
+            "price": "20.000",
+            "category": "utama",
+            "total_favorite": 4500
+        },
+        {
+            "photo": "https://cdn.idntimes.com/content-images/community/2019/12/74797333-542110323274286-8157494286295741274-n-b54ed79f2b1cd7e417c721f536a1d039.jpg",
+            "name": "Tahu Sumedang",
+            "description": "Berbeda dari tahu goreng biasa, Tahu Sumedang mempunyai tekstur yang khas. Ketika dimakan, kulit Tahu Sumedang yang renyah dan kering bercampur dengan tekstur dalamnya yang sangat lembut. Namun, untuk menikmati sensasi makan yang maksimal, Tahu Sumedang sebaiknya dimakan ketika masih hangat. Kulit Tahu Sumedang yang ditinggal hingga dingin tidak lagi akan terasa renyah.",
+            "location": "Sumedang, Jawa Barat",
+            "price": "15.000",
+            "category": "cemilan",
+            "total_favorite": 3500
+        },
+        {
+            "photo": "https://blog.tokowahab.com/wp-content/uploads/2020/06/Resep-Tahu-Gejrot-Khas-Cirebon.jpg",
+            "name": "Tahu Gejrot",
+            "description": "Tahu Gejrot ini berasal dari Cirebon. Umumnya, Tahu Gejrot dimakan dengan kuah pedas. Berbeda dari Tahu Sumedang yang isinya penuh, Tahu Gejrot mempunyai isi yang agak kosong. Tujuannya adalah supaya kuah dan bumbu-bumbu cair lainnya dapat terserap ke dalam tahu lebih cepat.",
+            "location": "Cirebon, Jawa Barat",
+            "price": "5.000",
+            "category": "cemilan",
+            "total_favorite": 3900
+        }
+    ]
+}
