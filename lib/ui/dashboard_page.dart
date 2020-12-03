@@ -6,6 +6,7 @@ import 'package:tauwisata/common/sizeconfig.dart';
 import 'package:tauwisata/common/styles.dart';
 import 'package:tauwisata/data/helper/preferences_helper.dart';
 import 'package:tauwisata/ui/destination/destination_page.dart';
+import 'package:tauwisata/ui/guide_page.dart';
 import 'package:tauwisata/ui/hotel/hotel_page.dart';
 import 'package:tauwisata/ui/quiz/take_quiz_page.dart';
 import 'package:tauwisata/ui/foods/food_page.dart';
@@ -87,9 +88,8 @@ class _DashboardPageState extends State<DashboardPage> {
                       _buildSubMenu(
                         text: 'Petunjuk',
                         icon: 'assets/icons/icon_submenu_about.png',
-                        onPressed: () => showCustomAlert(
-                          context,
-                          subtitle: "Fitur Petunjuk akan segera hadir!",
+                        onPressed: () => Navigation.navigate(
+                          GuidePage.routeName,
                         ),
                       ),
                       _buildSubMenu(

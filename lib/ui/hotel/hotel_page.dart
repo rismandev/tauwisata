@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tauwisata/common/functions.dart';
+import 'package:tauwisata/common/navigation.dart';
 import 'package:tauwisata/data/model/hotel.dart';
+import 'package:tauwisata/ui/hotel/hotel_detail_page.dart';
 import 'package:tauwisata/ui/layouts/app_list_layout.dart';
 import 'package:tauwisata/widgets/card/hotel.dart';
 
@@ -47,9 +49,9 @@ class _HotelPageState extends State<HotelPage> {
                         title: item.name,
                         location: item.location,
                         description: item.description,
-                        onPressDetail: () => showCustomAlert(
-                          context,
-                          subtitle: "Fitur Detail Hotel akan segera hadir!",
+                        onPressDetail: () => Navigation.navigate(
+                          HotelDetailPage.routeName,
+                          arguments: item,
                         ),
                         onPressFavorite: () => showCustomAlert(
                           context,

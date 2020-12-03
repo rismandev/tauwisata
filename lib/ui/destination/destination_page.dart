@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tauwisata/common/enum.dart';
 import 'package:tauwisata/common/functions.dart';
+import 'package:tauwisata/common/navigation.dart';
 import 'package:tauwisata/common/styles.dart';
 import 'package:tauwisata/data/model/destination.dart';
+import 'package:tauwisata/ui/destination/destination_detail_page.dart';
 import 'package:tauwisata/ui/layouts/app_list_layout.dart';
 import 'package:tauwisata/widgets/card/destination.dart';
 
@@ -121,9 +123,9 @@ class _DestinationPageState extends State<DestinationPage> {
                         title: item.name,
                         location: item.location,
                         description: item.description,
-                        onPressDetail: () => showCustomAlert(
-                          context,
-                          subtitle: "Fitur Detail Wisata akan segera hadir!",
+                        onPressDetail: () => Navigation.navigate(
+                          DestinationDetailPage.routeName,
+                          arguments: item,
                         ),
                         onPressFavorite: () => showCustomAlert(
                           context,

@@ -8,6 +8,10 @@ final Color primaryShadowColor = Color(0xFF7A7A7A);
 final Color primarySubMenuColor = Color(0xFFF0F0F0);
 final Color primaryQuizButtonColor = Color(0xFFF4F4F4);
 final Color primaryQuizCorrectColor = Color(0xFF61C401);
+final Color primaryYellowPriceColor = Color(0xFFF7DDB7);
+final Color primaryRedPriceColor = Color(0xFFFF6464);
+
+final Color gradientPrimaryGreen = Color(0xFF087662);
 
 final Color secondaryBrownColor = Color(0xFFFF9839);
 final Color secondaryShadowColor = Color(0xFFC2C2C2);

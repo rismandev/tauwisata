@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tauwisata/common/functions.dart';
+import 'package:tauwisata/common/navigation.dart';
 import 'package:tauwisata/data/model/food.dart';
+import 'package:tauwisata/ui/foods/food_detail_page.dart';
 import 'package:tauwisata/ui/layouts/app_list_layout.dart';
 import 'package:tauwisata/widgets/card/food.dart';
 
@@ -46,9 +48,9 @@ class _FoodPageState extends State<FoodPage> {
                         title: item.name,
                         location: item.location,
                         description: item.description,
-                        onPressDetail: () => showCustomAlert(
-                          context,
-                          subtitle: "Fitur Detail Makanan akan segera hadir!",
+                        onPressDetail: () => Navigation.navigate(
+                          FoodDetailPage.routeName,
+                          arguments: item,
                         ),
                         onPressFavorite: () => showCustomAlert(
                           context,

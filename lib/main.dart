@@ -4,6 +4,10 @@ import 'package:tauwisata/common/sizeconfig.dart';
 import 'package:tauwisata/common/styles.dart';
 import 'package:tauwisata/ui/dashboard_page.dart';
 import 'package:tauwisata/ui/destination/destination_page.dart';
+import 'package:tauwisata/ui/destination/destination_detail_page.dart';
+import 'package:tauwisata/ui/foods/food_detail_page.dart';
+import 'package:tauwisata/ui/guide_page.dart';
+import 'package:tauwisata/ui/hotel/hotel_detail_page.dart';
 import 'package:tauwisata/ui/hotel/hotel_page.dart';
 import 'package:tauwisata/ui/quiz/take_quiz_page.dart';
 import 'package:tauwisata/ui/foods/food_page.dart';
@@ -24,6 +28,12 @@ class MyApp extends StatelessWidget {
             SizeConfig().init(constraints, orientation);
 
             return MaterialApp(
+              builder: (context, child) {
+                return MediaQuery(
+                  data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                  child: child,
+                );
+              },
               title: 'TauWisata',
               debugShowCheckedModeBanner: false,
               theme: ThemeData(
@@ -40,6 +50,17 @@ class MyApp extends StatelessWidget {
                 FoodPage.routeName: (_) => FoodPage(),
                 HotelPage.routeName: (_) => HotelPage(),
                 TakeQuizPage.routeName: (_) => TakeQuizPage(),
+                GuidePage.routeName: (_) => GuidePage(),
+                DestinationDetailPage.routeName: (context) =>
+                    DestinationDetailPage(
+                      destination: ModalRoute.of(context).settings.arguments,
+                    ),
+                FoodDetailPage.routeName: (context) => FoodDetailPage(
+                      food: ModalRoute.of(context).settings.arguments,
+                    ),
+                HotelDetailPage.routeName: (context) => HotelDetailPage(
+                      hotel: ModalRoute.of(context).settings.arguments,
+                    ),
               },
               initialRoute: SplashPage.routeName,
             );
