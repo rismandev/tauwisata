@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tauwisata/common/styles.dart';
+import 'package:tauwisata/data/provider/database_provider.dart';
 import 'package:tauwisata/widgets/skeleton/skeletonloader.dart';
 
 class FoodCard extends StatelessWidget {
+  final String id;
   final String photoURL;
   final String title;
   final String location;
@@ -18,6 +21,7 @@ class FoodCard extends StatelessWidget {
     this.description,
     this.onPressFavorite,
     this.onPressDetail,
+    @required this.id,
   }) : super(key: key);
 
   @override
@@ -82,19 +86,36 @@ class FoodCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  InkWell(
-                    onTap: onPressFavorite,
-                    child: Container(
-                      width: double.infinity,
-                      child: Text(
-                        'Tambahkan ke favorit',
-                        style: Theme.of(context).textTheme.caption.copyWith(
-                            color: primaryRedColor,
-                            fontWeight: FontWeight.w500,
-                            decoration: TextDecoration.underline,
-                            fontStyle: FontStyle.italic),
-                      ),
-                    ),
+                  Consumer<DatabaseProvider>(
+                    builder: (context, value, child) {
+                      return FutureBuilder(
+                        future: value.isFavorite(id),
+                        builder: (context, snapshot) {
+                          bool _isFavorite = snapshot.data ?? false;
+
+                          if (_isFavorite) {
+                            return _buildHasFavorite(context);
+                          }
+                          return InkWell(
+                            onTap: onPressFavorite,
+                            child: Container(
+                              width: double.infinity,
+                              child: Text(
+                                'Tambahkan ke favorit',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .caption
+                                    .copyWith(
+                                        color: primaryRedColor,
+                                        fontWeight: FontWeight.w500,
+                                        decoration: TextDecoration.underline,
+                                        fontStyle: FontStyle.italic),
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
                   ),
                 ],
               ),
@@ -102,6 +123,28 @@ class FoodCard extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Row _buildHasFavorite(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Image.asset(
+          'assets/icons/icon_submenu_favorite.png',
+          width: 20,
+          height: 20,
+        ),
+        SizedBox(width: 5),
+        Text(
+          'Favorit',
+          style: Theme.of(context)
+              .textTheme
+              .caption
+              .copyWith(color: primaryRedColor, fontWeight: FontWeight.w600),
+        ),
+      ],
     );
   }
 

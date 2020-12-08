@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tauwisata/common/functions.dart';
 import 'package:tauwisata/common/navigation.dart';
+import 'package:tauwisata/data/model/favorite.dart';
 import 'package:tauwisata/data/model/food.dart';
+import 'package:tauwisata/data/provider/database_provider.dart';
 import 'package:tauwisata/ui/foods/food_detail_page.dart';
 import 'package:tauwisata/ui/layouts/app_list_layout.dart';
 import 'package:tauwisata/widgets/card/food.dart';
 
-class FoodPage extends StatefulWidget {
+class FoodPage extends StatelessWidget {
   static String routeName = 'food_page';
 
-  @override
-  _FoodPageState createState() => _FoodPageState();
-}
-
-class _FoodPageState extends State<FoodPage> {
   @override
   Widget build(BuildContext context) {
     return AppListLayout(
@@ -43,19 +41,45 @@ class _FoodPageState extends State<FoodPage> {
                     physics: NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       FoodModel item = foods[index];
-                      return FoodCard(
-                        photoURL: item.photoURL,
-                        title: item.name,
-                        location: item.location,
-                        description: item.description,
-                        onPressDetail: () => Navigation.navigate(
-                          FoodDetailPage.routeName,
-                          arguments: item,
-                        ),
-                        onPressFavorite: () => showCustomAlert(
-                          context,
-                          subtitle: "Fitur Tambah Favorit akan segera hadir!",
-                        ),
+                      return Consumer<DatabaseProvider>(
+                        builder: (context, provider, child) {
+                          return FoodCard(
+                            id: item.id,
+                            photoURL: item.photoURL,
+                            title: item.name,
+                            location: item.location,
+                            description: item.description,
+                            onPressDetail: () => Navigation.navigate(
+                              FoodDetailPage.routeName,
+                              arguments: item,
+                            ),
+                            onPressFavorite: () {
+                              FavoriteModel model = new FavoriteModel(
+                                id: item.id,
+                                name: item.name,
+                                category: item.category,
+                                description: item.description,
+                                location: item.location,
+                                photoURL: item.photoURL,
+                                price: item.price,
+                                totalFavorite: item.totalFavorite,
+                                subMenu: 'food',
+                              );
+                              provider.addFavorite(model).then((value) {
+                                if (value) {
+                                  showCustomSnackBar(
+                                    context,
+                                    useContext: true,
+                                    text: "Berhasil menambahkan ke favorite!",
+                                    backgroundColor: Colors.green[800],
+                                    textColor: Colors.white,
+                                    duration: Duration(milliseconds: 800),
+                                  );
+                                }
+                              });
+                            },
+                          );
+                        },
                       );
                     },
                   ),

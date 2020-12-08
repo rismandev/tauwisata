@@ -94,27 +94,7 @@ class DestinationCard extends StatelessWidget {
                           bool _isFavorite = snapshot.data ?? false;
 
                           if (_isFavorite) {
-                            return Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  'assets/icons/icon_submenu_favorite.png',
-                                  width: 20,
-                                  height: 20,
-                                ),
-                                SizedBox(width: 5),
-                                Text(
-                                  'Favorit',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .caption
-                                      .copyWith(
-                                          color: primaryRedColor,
-                                          fontWeight: FontWeight.w600),
-                                ),
-                              ],
-                            );
+                            return _buildHasFavorite(context);
                           }
 
                           return InkWell(
@@ -144,6 +124,28 @@ class DestinationCard extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Row _buildHasFavorite(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Image.asset(
+          'assets/icons/icon_submenu_favorite.png',
+          width: 20,
+          height: 20,
+        ),
+        SizedBox(width: 5),
+        Text(
+          'Favorit',
+          style: Theme.of(context)
+              .textTheme
+              .caption
+              .copyWith(color: primaryRedColor, fontWeight: FontWeight.w600),
+        ),
+      ],
     );
   }
 
