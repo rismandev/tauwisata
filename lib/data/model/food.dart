@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 class FoodModel {
+  String id;
   String photoURL;
   String name;
   String location;
@@ -10,6 +11,7 @@ class FoodModel {
   int totalFavorite;
 
   FoodModel({
+    this.id,
     this.photoURL,
     this.name,
     this.location,
@@ -20,6 +22,7 @@ class FoodModel {
   });
 
   factory FoodModel.fromJson(Map<String, dynamic> json) => FoodModel(
+        id: json["id"],
         photoURL: json["photo"],
         name: json["name"],
         location: json["location"],

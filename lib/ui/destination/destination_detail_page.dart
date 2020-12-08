@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tauwisata/common/functions.dart';
 import 'package:tauwisata/common/navigation.dart';
 import 'package:tauwisata/common/sizeconfig.dart';
 import 'package:tauwisata/common/styles.dart';
 import 'package:tauwisata/data/model/destination.dart';
+import 'package:tauwisata/data/model/favorite.dart';
+import 'package:tauwisata/data/provider/database_provider.dart';
 import 'package:tauwisata/widgets/button/green_primary.dart';
 
 class DestinationDetailPage extends StatelessWidget {
@@ -18,6 +21,7 @@ class DestinationDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<DatabaseProvider>(context);
     return Scaffold(
       body: Stack(
         children: [
@@ -51,12 +55,61 @@ class DestinationDetailPage extends StatelessWidget {
                 Positioned(
                   top: -25,
                   right: 25,
-                  child: _buildFavoriteButton(
-                    isFavorite: false,
-                    onPressed: () => showCustomAlert(
-                      context,
-                      subtitle: "Fitur Tambah Favorit akan segera hadir!",
-                    ),
+                  child: Consumer<DatabaseProvider>(
+                    builder: (context, value, child) {
+                      return FutureBuilder(
+                        future: value.isFavorite(destination.id),
+                        builder: (context, snapshot) {
+                          bool _isFavorite = snapshot.data ?? false;
+
+                          return _buildFavoriteButton(
+                            isFavorite: _isFavorite,
+                            onPressed: () {
+                              if (_isFavorite) {
+                                provider
+                                    .removeFavorite(destination.id)
+                                    .then((value) {
+                                  if (value) {
+                                    showCustomSnackBar(
+                                      context,
+                                      useContext: true,
+                                      text: "Berhasil menghapus dari favorite!",
+                                      backgroundColor: Colors.green[800],
+                                      textColor: Colors.white,
+                                      duration: Duration(milliseconds: 800),
+                                    );
+                                  }
+                                });
+                              } else {
+                                FavoriteModel model = new FavoriteModel(
+                                  id: destination.id,
+                                  name: destination.name,
+                                  category: destination.category,
+                                  description: destination.description,
+                                  location: destination.location,
+                                  photoURL: destination.photoURL,
+                                  price: destination.price,
+                                  totalFavorite: destination.totalFavorite,
+                                  subMenu: 'destination',
+                                );
+                                provider.addFavorite(model).then((value) {
+                                  if (value) {
+                                    showCustomSnackBar(
+                                      context,
+                                      useContext: true,
+                                      text: "Berhasil menambahkan ke favorite!",
+                                      backgroundColor: Colors.green[800],
+                                      textColor: Colors.white,
+                                      duration: Duration(milliseconds: 800),
+                                    );
+                                  }
+                                });
+                              }
+                            },
+                          );
+                        },
+                      );
+                    },
                   ),
                 ),
                 _buildDetail(context),
@@ -85,9 +138,10 @@ class DestinationDetailPage extends StatelessWidget {
               child: GreenPrimaryButton(
                 onPressed: () => showCustomAlert(
                   context,
-                  subtitle: "Fitur Pesan akan segera hadir!",
+                  subtitle: "Fitur Bagikan akan segera hadir!",
                 ),
-                text: "Pesan Sekarang",
+                icon: Icons.share,
+                text: "Bagikan",
                 borderRadius: BorderRadius.circular(50),
               ),
             ),

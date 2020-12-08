@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tauwisata/common/enum.dart';
 import 'package:tauwisata/common/functions.dart';
 import 'package:tauwisata/common/navigation.dart';
 import 'package:tauwisata/common/styles.dart';
 import 'package:tauwisata/data/model/destination.dart';
+import 'package:tauwisata/data/model/favorite.dart';
+import 'package:tauwisata/data/provider/database_provider.dart';
 import 'package:tauwisata/ui/destination/destination_detail_page.dart';
 import 'package:tauwisata/ui/layouts/app_list_layout.dart';
 import 'package:tauwisata/widgets/card/destination.dart';
@@ -118,19 +121,45 @@ class _DestinationPageState extends State<DestinationPage> {
                     physics: NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       DestinationModel item = destinations[index];
-                      return DestinationCard(
-                        photoURL: item.photoURL,
-                        title: item.name,
-                        location: item.location,
-                        description: item.description,
-                        onPressDetail: () => Navigation.navigate(
-                          DestinationDetailPage.routeName,
-                          arguments: item,
-                        ),
-                        onPressFavorite: () => showCustomAlert(
-                          context,
-                          subtitle: "Fitur Tambah Favorit akan segera hadir!",
-                        ),
+                      return Consumer<DatabaseProvider>(
+                        builder: (context, provider, child) {
+                          return DestinationCard(
+                            id: item.id,
+                            photoURL: item.photoURL,
+                            title: item.name,
+                            location: item.location,
+                            description: item.description,
+                            onPressDetail: () => Navigation.navigate(
+                              DestinationDetailPage.routeName,
+                              arguments: item,
+                            ),
+                            onPressFavorite: () {
+                              FavoriteModel model = new FavoriteModel(
+                                id: item.id,
+                                name: item.name,
+                                category: item.category,
+                                description: item.description,
+                                location: item.location,
+                                photoURL: item.photoURL,
+                                price: item.price,
+                                totalFavorite: item.totalFavorite,
+                                subMenu: 'destination',
+                              );
+                              provider.addFavorite(model).then((value) {
+                                if (value) {
+                                  showCustomSnackBar(
+                                    context,
+                                    useContext: true,
+                                    text: "Berhasil menambahkan ke favorite!",
+                                    backgroundColor: Colors.green[800],
+                                    textColor: Colors.white,
+                                    duration: Duration(milliseconds: 800),
+                                  );
+                                }
+                              });
+                            },
+                          );
+                        },
                       );
                     },
                   ),
@@ -143,53 +172,55 @@ class _DestinationPageState extends State<DestinationPage> {
     );
   }
 
-  Container _buildMenu(
+  Expanded _buildMenu(
     BuildContext context, {
     String text,
     String icon,
     bool isActive = false,
     Function onPressed,
   }) {
-    return Container(
-      width: 90,
-      height: 90,
-      decoration: BoxDecoration(
-        color: isActive ? primaryGreenColor.withOpacity(0.5) : Colors.white,
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: [
-          BoxShadow(
-            color: secondaryShadowColor.withOpacity(0.20),
-            offset: Offset(-5, -5),
-            blurRadius: 5,
-            spreadRadius: 0,
-          ),
-          BoxShadow(
-            color: secondaryShadowColor.withOpacity(0.20),
-            offset: Offset(5, 5),
-            blurRadius: 10,
-            spreadRadius: 0,
-          ),
-        ],
-      ),
-      child: InkWell(
-        onTap: onPressed ?? () {},
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Image.asset(
-              icon ?? 'assets/icons/icon_cagar_alam.png',
-              width: 30,
-              height: 30,
+    return Expanded(
+      child: Container(
+        height: 90,
+        margin: EdgeInsets.symmetric(horizontal: 10),
+        decoration: BoxDecoration(
+          color: isActive ? primaryGreenColor.withOpacity(0.5) : Colors.white,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: secondaryShadowColor.withOpacity(0.20),
+              offset: Offset(-5, -5),
+              blurRadius: 5,
+              spreadRadius: 0,
             ),
-            Text(
-              text ?? 'Wisata alam',
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.caption.copyWith(
-                  color: primaryDarkColor,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 9),
+            BoxShadow(
+              color: secondaryShadowColor.withOpacity(0.20),
+              offset: Offset(5, 5),
+              blurRadius: 10,
+              spreadRadius: 0,
             ),
           ],
+        ),
+        child: InkWell(
+          onTap: onPressed ?? () {},
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image.asset(
+                icon ?? 'assets/icons/icon_cagar_alam.png',
+                width: 30,
+                height: 30,
+              ),
+              Text(
+                text ?? 'Wisata alam',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.caption.copyWith(
+                    color: primaryDarkColor,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 10),
+              ),
+            ],
+          ),
         ),
       ),
     );

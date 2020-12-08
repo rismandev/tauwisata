@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tauwisata/common/navigation.dart';
 import 'package:tauwisata/common/sizeconfig.dart';
 import 'package:tauwisata/common/styles.dart';
+import 'package:tauwisata/data/helper/database_helper.dart';
+import 'package:tauwisata/data/provider/database_provider.dart';
 import 'package:tauwisata/ui/dashboard_page.dart';
 import 'package:tauwisata/ui/destination/destination_page.dart';
 import 'package:tauwisata/ui/destination/destination_detail_page.dart';
@@ -15,7 +18,18 @@ import 'package:tauwisata/ui/splash_page.dart';
 import 'package:tauwisata/ui/welcome_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => DatabaseProvider(
+            databaseHelper: DatabaseHelper(),
+          ),
+        )
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

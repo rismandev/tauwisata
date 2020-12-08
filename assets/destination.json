@@ -6,6 +6,7 @@
             "description": "Kawah Putih adalah sebuah tempat wisata di Jawa Barat yang terletak di Desa Alam Endah, Kecamatan Rancabali, Kabupaten Bandung Jawa Barat yang terletak di kaki Gunung Patuha. Kawah putih merupakan sebuah danau yang terbentuk dari letusan Gunung Patuha.",
             "location": "Bandung, Jawa Barat",
             "price": "25.000",
+            "id": "destination-id01",
             "category": "alam",
             "total_favorite": 1200
         },
@@ -15,6 +16,7 @@
             "description": "Cukang Taneuh atau Green Canyon adalah salah satu objek wisata di Jawa Barat yang terletak di Desa Kertayasa Kecamatan Cijulang, Kabupaten Pangandaran. Objek wisata ini berjarak ± 31 km dari Pangandaran. ",
             "location": "Pangandaran, Jawa Barat",
             "price": "75.000",
+            "id": "destination-id02",
             "category": "bahari",
             "total_favorite": 2500
         },
@@ -24,6 +26,7 @@
             "description": "Taman Bunga Nusantara adalah sebuah taman bunga seluas 35 hektare yang terletak dekat Gunung Gede Pangrango dan Kebun Teh Bogor dengan jarak tempuh sekitar 2,5 - 3 jam perjalanan dari Jakarta.",
             "location": "Cianjur, Jawa Barat",
             "price": "40.000",
+            "id": "destination-id03",
             "category": "alam",
             "total_favorite": 900
         },
@@ -33,6 +36,7 @@
             "description": "Gunung Ceremai adalah gunung berapi kerucut yang secara administratif termasuk dalam wilayah dua kabupaten, yakni Kabupaten Kuningan dan Kabupaten Majalengka, Provinsi Jawa Barat. Posisi geografis puncaknya terletak pada 6° 53' 30' LS dan 108° 24' 00' BT, dengan ketinggian 3.078 m di atas permukaan laut.",
             "location": "Majalengka, Jawa Barat",
             "price": "50.000",
+            "id": "destination-id04",
             "category": "alam",
             "total_favorite": 3500
         },
@@ -42,6 +46,7 @@
             "description": "Wisata bukit panembongan merupakan tempat yg sudah hits di jawa barat, buat kamu yang ingin berkunjung ke sini yang pertama harus membayar parkir Rp3.000/kendaraan, dari area parkir para wisatawan harus berjalan kaki sekitar 500 meter menuju lokasi, tempat untuk menyaksikan pemandangan indah.Di tempat instagramable paling hits di Kuningan ini, ada fasilitas tempat duduk yang posisinya menjorok ke jurang, cocok dijadikan tempat untuk berfoto, bahkan untuk sesi foto preweding.",
             "location": "Kuningan, Jawa Barat",
             "price": "15.000",
+            "id": "destination-id05",
             "category": "alam",
             "total_favorite": 1500
         },
@@ -51,6 +56,7 @@
             "description": "Destinasi di tepi laut Ancol memiliki pantai yang populer untuk olahraga air dan kompleks di tepi laut yang dilengkapi rollercoaster serta wahana di Dunia Fantasi dan taman rekreasi air Atlantis Water Adventure. Keluarga juga dapat menikmati akuarium SeaWorld dengan hiu dan kura-kuranya, serta Ocean Dream Samudra yang menampilkan pertunjukan lumba-lumba dan singa laut. Pasar Seni Ancol menampilkan seniman lokal yang baru muncul dan mengadakan pertunjukan tarian di akhir pekan.",
             "location": "Jakarta Utara, DKI Jakarta",
             "price": "25.000",
+            "id": "destination-id06",
             "category": "bahari",
             "total_favorite": 6500
         },
@@ -60,6 +66,7 @@
             "description": "Danau Toba adalah danau alami berukuran besar di Indonesia yang berada di kaldera Gunung Supervulkan. Danau ini memiliki panjang 100 kilometer, lebar 30 kilometer, dan kedalaman 505 meter. Danau ini terletak di tengah pulau Sumatra bagian utara dengan ketinggian permukaan sekitar 900 meter.",
             "location": "Pematang Siantar, Sumatera Utara",
             "price": "5.000",
+            "id": "destination-id07",
             "category": "bahari",
             "total_favorite": 5000
         },
@@ -69,6 +76,7 @@
             "description": "Candi Borobudur adalah salah satu monumen Buddha terbesar di dunia. Monumen ini terdiri atas enam teras berbentuk bujur sangkar yang di atasnya terdapat tiga pelataran melingkar, pada dindingnya dihiasi dengan 2.672 panel relief dan aslinya terdapat 504 arca Buddha.",
             "location": "Magelang, Jawa Tengah",
             "price": "50.000",
+            "id": "destination-id08",
             "category": "budaya",
             "total_favorite": 7000
         },
@@ -78,6 +86,7 @@
             "description": "Gunung Slamet adalah sebuah gunung berapi kerucut yang terdapat di Pulau Jawa, Indonesia. Gunung Slamet terletak di antara 5 kabupaten, yaitu Kabupaten Brebes, Kabupaten Banyumas, Kabupaten Purbalingga, Kabupaten Tegal, dan Kabupaten Pemalang, Provinsi Jawa Tengah.",
             "location": "Jawa Tengah",
             "price": "25.000",
+            "id": "destination-id09",
             "category": "alam",
             "total_favorite": 4000
         },
@@ -87,6 +96,7 @@
             "description": "Gunung Semeru atau Gunung Meru adalah sebuah gunung berapi kerucut di Jawa Timur, Indonesia. Gunung Semeru merupakan gunung tertinggi di Pulau Jawa, dengan puncaknya Mahameru, 3.676 meter dari permukaan laut.",
             "location": "Jawa Timur",
             "price": "20.000",
+            "id": "destination-id10",
             "category": "alam",
             "total_favorite": 6500
         },
@@ -96,6 +106,7 @@
             "description": "Candi Prambanan yang dalam bahasa Jawa adalah Ketuhanan, merupakan candi peninggalan agama Hindu yang ada di Indonesia dan sampai saat ini candi tersebut masih kokoh berdiri. Candi Prambanan juga diakui oleh UNESCO sebagai situs warisan dunia karena candi ini adalah candi termegah di kawasan Asia Tenggara dan juga bentuk bangunannya yang indah.",
             "location": "Sleman, DI Yogyakarta",
             "price": "50.000",
+            "id": "destination-id11",
             "category": "budaya",
             "total_favorite": 4300
         }

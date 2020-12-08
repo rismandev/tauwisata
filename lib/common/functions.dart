@@ -55,6 +55,7 @@ void showCustomSnackBar(
   Color backgroundColor,
   Color textColor,
   Duration duration,
+  bool useContext = false,
 }) {
   final snackbar = SnackBar(
     duration: duration ?? Duration(seconds: 2),
@@ -65,5 +66,9 @@ void showCustomSnackBar(
           color: textColor ?? Colors.white, fontWeight: FontWeight.w600),
     ),
   );
-  quizScaffold.currentState.showSnackBar(snackbar);
+  if (useContext) {
+    Scaffold.of(context).showSnackBar(snackbar);
+  } else {
+    quizScaffold.currentState.showSnackBar(snackbar);
+  }
 }
