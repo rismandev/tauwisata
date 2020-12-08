@@ -10,8 +10,8 @@ class GuidePage extends StatelessWidget {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        padding: EdgeInsets.fromLTRB(
-            20, MediaQuery.of(context).padding.top + 20, 20, 20),
+        padding:
+            EdgeInsets.fromLTRB(20, MediaQuery.of(context).padding.top, 20, 20),
         height: SizeConfig.heightMultiplier * 100,
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -24,6 +24,7 @@ class GuidePage extends StatelessWidget {
           child: Column(
             children: [
               Container(
+                margin: EdgeInsets.only(top: 15),
                 child: Text(
                   'Petunjuk TauWisata',
                   style:
@@ -40,9 +41,65 @@ class GuidePage extends StatelessWidget {
               _buildQuizGuide(context),
               _buildDestinationGuide(context),
               _buildFoodGuide(context),
+              _buildHotelGuide(context),
+              SizedBox(height: 15),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Container _buildHotelGuide(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      margin: EdgeInsets.only(top: 20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: primaryShadowColor.withOpacity(0.30),
+            blurRadius: 10,
+            offset: Offset.zero,
+            spreadRadius: 1,
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: Text(
+              'Fitur Hotel',
+              style: Theme.of(context).textTheme.bodyText1.copyWith(
+                  color: primaryRedColor, fontWeight: FontWeight.w600),
+            ),
+          ),
+          Divider(height: 10),
+          Container(
+            padding: EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Hotel yang ditampilkan merupakan Hotel yang berada di Seluruh Indonesia.',
+                  style: Theme.of(context).textTheme.caption.copyWith(
+                      color: primaryDarkColor, fontWeight: FontWeight.w600),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  'Kamu bisa menambahkan beberapa hotel ke daftar favorit dengan menekan icon love di halaman detail.',
+                  style: Theme.of(context).textTheme.caption.copyWith(
+                      color: primaryDarkColor, fontWeight: FontWeight.w600),
+                ),
+                SizedBox(height: 5),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -70,7 +127,7 @@ class GuidePage extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: Text(
-              'Petunjuk Makanan',
+              'Fitur Makanan',
               style: Theme.of(context).textTheme.bodyText1.copyWith(
                   color: primaryRedColor, fontWeight: FontWeight.w600),
             ),
@@ -82,13 +139,13 @@ class GuidePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Makanan yang ditampilkan merupakan Makanan Khas Di Seluruh Indonesia.',
+                  'Makanan yang ditampilkan merupakan Makanan Khas di Seluruh Indonesia.',
                   style: Theme.of(context).textTheme.caption.copyWith(
                       color: primaryDarkColor, fontWeight: FontWeight.w600),
                 ),
                 SizedBox(height: 5),
                 Text(
-                  'Kamu bisa menambahkan makanan ke daftar favorite dengan menekan icon love.',
+                  'Kamu bisa menambahkan beberapa makanan ke daftar favorit dengan menekan icon love di halaman detail.',
                   style: Theme.of(context).textTheme.caption.copyWith(
                       color: primaryDarkColor, fontWeight: FontWeight.w600),
                 ),
@@ -124,7 +181,7 @@ class GuidePage extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: Text(
-              'Petunjuk Wisata',
+              'Fitur Wisata',
               style: Theme.of(context).textTheme.bodyText1.copyWith(
                   color: primaryRedColor, fontWeight: FontWeight.w600),
             ),
@@ -136,7 +193,7 @@ class GuidePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Wisata yang ditampilkan merupakan Destinasi Wisata Di Seluruh Indonesia.',
+                  'Wisata yang ditampilkan merupakan Destinasi Wisata di Seluruh Indonesia.',
                   style: Theme.of(context).textTheme.caption.copyWith(
                       color: primaryDarkColor, fontWeight: FontWeight.w600),
                 ),
@@ -148,7 +205,7 @@ class GuidePage extends StatelessWidget {
                 ),
                 SizedBox(height: 5),
                 Text(
-                  'Kamu bisa menambahkan wisata ke daftar favorite dengan menekan icon love.',
+                  'Kamu bisa menambahkan beberapa wisata ke daftar favorit dengan menekan icon love di halaman detail.',
                   style: Theme.of(context).textTheme.caption.copyWith(
                       color: primaryDarkColor, fontWeight: FontWeight.w600),
                 ),
@@ -184,7 +241,7 @@ class GuidePage extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             child: Text(
-              'Petunjuk Kuis',
+              'Fitur Kuis',
               style: Theme.of(context).textTheme.bodyText1.copyWith(
                   color: primaryRedColor, fontWeight: FontWeight.w600),
             ),

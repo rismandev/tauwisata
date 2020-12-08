@@ -6,10 +6,12 @@ import 'package:tauwisata/common/sizeconfig.dart';
 import 'package:tauwisata/common/styles.dart';
 import 'package:tauwisata/data/helper/preferences_helper.dart';
 import 'package:tauwisata/ui/destination/destination_page.dart';
+import 'package:tauwisata/ui/favorite_page.dart';
 import 'package:tauwisata/ui/guide_page.dart';
 import 'package:tauwisata/ui/hotel/hotel_page.dart';
 import 'package:tauwisata/ui/quiz/take_quiz_page.dart';
 import 'package:tauwisata/ui/foods/food_page.dart';
+import 'package:tauwisata/ui/settings_page.dart';
 
 class DashboardPage extends StatefulWidget {
   static String routeName = 'dashboard_page';
@@ -80,9 +82,8 @@ class _DashboardPageState extends State<DashboardPage> {
                       _buildSubMenu(
                         text: 'Favorit',
                         icon: 'assets/icons/icon_submenu_favorite.png',
-                        onPressed: () => showCustomAlert(
-                          context,
-                          subtitle: "Fitur Favorit akan segera hadir!",
+                        onPressed: () => Navigation.navigate(
+                          FavoritePage.routeName,
                         ),
                       ),
                       _buildSubMenu(
@@ -95,9 +96,8 @@ class _DashboardPageState extends State<DashboardPage> {
                       _buildSubMenu(
                         text: 'Pengaturan',
                         icon: 'assets/icons/icon_submenu_setting.png',
-                        onPressed: () => showCustomAlert(
-                          context,
-                          subtitle: "Fitur Pengaturan akan segera hadir!",
+                        onPressed: () => Navigation.navigate(
+                          SettingsPage.routeName,
                         ),
                       ),
                     ],

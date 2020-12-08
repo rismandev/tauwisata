@@ -95,7 +95,7 @@ class AnswerButton extends StatelessWidget {
             ),
             this.iconPath != null
                 ? Image.asset(
-                    'assets/icons/icon_checklist.png',
+                    iconPath,
                     width: 30,
                     height: 30,
                   )

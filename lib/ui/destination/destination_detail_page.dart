@@ -129,16 +129,16 @@ class DestinationDetailPage extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 0,
+            bottom: 10,
             left: 0,
             right: 0,
             child: Container(
               alignment: Alignment.center,
               padding: EdgeInsets.only(bottom: 15),
               child: GreenPrimaryButton(
-                onPressed: () => showCustomAlert(
-                  context,
-                  subtitle: "Fitur Bagikan akan segera hadir!",
+                onPressed: () => handleShare(
+                  title: "TauWisata - ${destination.name}",
+                  subject: destination.description,
                 ),
                 icon: Icons.share,
                 text: "Bagikan",

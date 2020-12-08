@@ -127,16 +127,16 @@ class FoodDetailPage extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 0,
+            bottom: 10,
             left: 0,
             right: 0,
             child: Container(
               alignment: Alignment.center,
               padding: EdgeInsets.only(bottom: 15),
               child: GreenPrimaryButton(
-                onPressed: () => showCustomAlert(
-                  context,
-                  subtitle: "Fitur Pesan akan segera hadir!",
+                onPressed: () => handleShare(
+                  title: "TauWisata - ${food.name}",
+                  subject: food.description,
                 ),
                 icon: Icons.share,
                 text: "Bagikan",

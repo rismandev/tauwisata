@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tauwisata/common/functions.dart';
+// import 'package:tauwisata/common/functions.dart';
 import 'package:tauwisata/common/sizeconfig.dart';
 import 'package:tauwisata/common/styles.dart';
 
@@ -75,27 +75,27 @@ class AppListLayout extends StatelessWidget {
               ],
             ),
           ),
-          InkWell(
-            onTap: () => showCustomAlert(
-              context,
-              title: "Segera Hadir!",
-              subtitle:
-                  "Fitur ini akan segera hadir, Silahkan dukung kami agar lebih cepat kami kerjakan!",
-            ),
-            child: Container(
-              padding: EdgeInsets.all(10),
-              margin: EdgeInsets.only(left: 10),
-              decoration: BoxDecoration(
-                color: primaryGreenColor,
-                shape: BoxShape.circle,
-              ),
-              child: Image.asset(
-                'assets/icons/icon_filter.png',
-                width: 20,
-                height: 20,
-              ),
-            ),
-          )
+          // InkWell(
+          //   onTap: () => showCustomAlert(
+          //     context,
+          //     title: "Segera Hadir!",
+          //     subtitle:
+          //         "Fitur ini akan segera hadir, Silahkan dukung kami agar lebih cepat kami kerjakan!",
+          //   ),
+          //   child: Container(
+          //     padding: EdgeInsets.all(10),
+          //     margin: EdgeInsets.only(left: 10),
+          //     decoration: BoxDecoration(
+          //       color: primaryGreenColor,
+          //       shape: BoxShape.circle,
+          //     ),
+          //     child: Image.asset(
+          //       'assets/icons/icon_filter.png',
+          //       width: 20,
+          //       height: 20,
+          //     ),
+          //   ),
+          // )
         ],
       ),
     );

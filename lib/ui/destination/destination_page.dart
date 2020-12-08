@@ -19,7 +19,22 @@ class DestinationPage extends StatefulWidget {
 }
 
 class _DestinationPageState extends State<DestinationPage> {
+  ScrollController _scrollController = ScrollController();
   String _selectedFilter = "";
+
+  @override
+  void initState() {
+    _scrollController.addListener(() {
+      // Implement Animated Scroll
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   void changeMenu(DestinationCategory menu) {
     switch (menu) {
@@ -65,6 +80,7 @@ class _DestinationPageState extends State<DestinationPage> {
   Widget build(BuildContext context) {
     return AppListLayout(
       child: SingleChildScrollView(
+        controller: _scrollController,
         child: Column(
           children: [
             Container(

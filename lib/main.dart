@@ -8,12 +8,14 @@ import 'package:tauwisata/data/provider/database_provider.dart';
 import 'package:tauwisata/ui/dashboard_page.dart';
 import 'package:tauwisata/ui/destination/destination_page.dart';
 import 'package:tauwisata/ui/destination/destination_detail_page.dart';
+import 'package:tauwisata/ui/favorite_page.dart';
 import 'package:tauwisata/ui/foods/food_detail_page.dart';
 import 'package:tauwisata/ui/guide_page.dart';
 import 'package:tauwisata/ui/hotel/hotel_detail_page.dart';
 import 'package:tauwisata/ui/hotel/hotel_page.dart';
 import 'package:tauwisata/ui/quiz/take_quiz_page.dart';
 import 'package:tauwisata/ui/foods/food_page.dart';
+import 'package:tauwisata/ui/settings_page.dart';
 import 'package:tauwisata/ui/splash_page.dart';
 import 'package:tauwisata/ui/welcome_page.dart';
 
@@ -65,6 +67,8 @@ class MyApp extends StatelessWidget {
                 HotelPage.routeName: (_) => HotelPage(),
                 TakeQuizPage.routeName: (_) => TakeQuizPage(),
                 GuidePage.routeName: (_) => GuidePage(),
+                SettingsPage.routeName: (_) => SettingsPage(),
+                FavoritePage.routeName: (_) => FavoritePage(),
                 DestinationDetailPage.routeName: (context) =>
                     DestinationDetailPage(
                       destination: ModalRoute.of(context).settings.arguments,

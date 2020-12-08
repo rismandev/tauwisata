@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 
 final quizScaffold = GlobalKey<ScaffoldState>();
 
@@ -71,4 +72,8 @@ void showCustomSnackBar(
   } else {
     quizScaffold.currentState.showSnackBar(snackbar);
   }
+}
+
+void handleShare({String title, String subject}) async {
+  await Share.share(title, subject: subject);
 }

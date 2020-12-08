@@ -49,7 +49,7 @@ class _TakeQuizPageState extends State<TakeQuizPage> {
           context,
           backgroundColor: primaryRedColor,
           textColor: Colors.white,
-          duration: Duration(milliseconds: 1250),
+          duration: Duration(milliseconds: 800),
           text: 'Waktu kamu habis, pertanyaan ini akan dianggap salah!',
         );
         _timer.cancel();
@@ -85,7 +85,7 @@ class _TakeQuizPageState extends State<TakeQuizPage> {
       showCustomSnackBar(
         context,
         text: "Selamat, Jawaban Kamu Benar!",
-        duration: Duration(milliseconds: 1250),
+        duration: Duration(milliseconds: 800),
         backgroundColor: primaryQuizCorrectColor,
         textColor: Colors.white,
       );
@@ -93,7 +93,7 @@ class _TakeQuizPageState extends State<TakeQuizPage> {
       showCustomSnackBar(
         context,
         text: "Maaf, Jawaban Kamu Salah!",
-        duration: Duration(milliseconds: 1250),
+        duration: Duration(milliseconds: 800),
         backgroundColor: primaryRedColor,
         textColor: Colors.white,
       );
