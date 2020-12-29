@@ -13,37 +13,40 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        alignment: Alignment.center,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              _buildLogo(),
-              _buildTitle(context),
-              _buildDescription(context),
-              Expanded(
-                child: Container(
-                  alignment: Alignment.center,
-                  width: double.infinity,
-                  child: RedPrimaryButton(
-                    onPressed: () => Navigation.pushAndRemove(
-                      DashboardPage.routeName,
+    return SafeArea(
+      maintainBottomViewPadding: true,
+      child: Scaffold(
+        body: Stack(
+          alignment: Alignment.center,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                _buildLogo(),
+                _buildTitle(context),
+                _buildDescription(context),
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: double.infinity,
+                    child: RedPrimaryButton(
+                      onPressed: () => Navigation.pushAndRemove(
+                        DashboardPage.routeName,
+                      ),
+                      text: "Lanjut",
                     ),
-                    text: "Lanjut",
                   ),
                 ),
-              ),
-            ],
-          ),
-          Positioned(
-            top: 0,
-            left: 0,
-            child: Image.asset('assets/shapes/shape_top.png'),
-          ),
-        ],
+              ],
+            ),
+            Positioned(
+              top: 0,
+              left: 0,
+              child: Image.asset('assets/shapes/shape_top.png'),
+            ),
+          ],
+        ),
       ),
     );
   }

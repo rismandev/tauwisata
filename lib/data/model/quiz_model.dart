@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'dart:math';
+
 class QuizResult {
   String name;
   int wrong;
@@ -75,12 +77,22 @@ List<QuizModel> parseQuizFromJson(String json) {
   }
 
   final _parsed = jsonDecode(json);
+  final _random = new Random();
 
   List<QuizModel> _data = List<QuizModel>();
+  List<QuizModel> _randomData = List<QuizModel>();
 
   _parsed["quiz_data"].forEach((item) {
     _data.add(QuizModel.fromJson(item));
   });
 
-  return _data;
+  for (var i = 0; i < 10;) {
+    QuizModel _item = _data[_random.nextInt(_data.length)];
+    if (!_randomData.contains(_item)) {
+      _randomData.add(_item);
+      i++;
+    }
+  }
+
+  return _randomData;
 }

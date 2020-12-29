@@ -7,6 +7,7 @@ import 'package:tauwisata/common/styles.dart';
 import 'package:tauwisata/data/model/destination.dart';
 import 'package:tauwisata/data/model/favorite.dart';
 import 'package:tauwisata/data/provider/database_provider.dart';
+import 'package:tauwisata/data/provider/destination_provider.dart';
 import 'package:tauwisata/widgets/button/green_primary.dart';
 
 class DestinationDetailPage extends StatelessWidget {
@@ -36,95 +37,112 @@ class DestinationDetailPage extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          Container(
-            width: double.infinity,
-            height: SizeConfig.heightMultiplier * 60,
-            margin: EdgeInsets.only(
-              top: SizeConfig.heightMultiplier * 40,
-            ),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(50),
-                topRight: Radius.circular(50),
-              ),
-            ),
-            child: Stack(
-              overflow: Overflow.visible,
-              children: [
-                Positioned(
-                  top: -25,
-                  right: 25,
-                  child: Consumer<DatabaseProvider>(
-                    builder: (context, value, child) {
-                      return FutureBuilder(
-                        future: value.isFavorite(destination.id),
-                        builder: (context, snapshot) {
-                          bool _isFavorite = snapshot.data ?? false;
+          Consumer<DestinationProvider>(
+            builder: (context, model, child) {
+              return AnimatedContainer(
+                duration: Duration(milliseconds: 350),
+                curve: Curves.easeIn,
+                width: double.infinity,
+                height: model.detailSize,
+                margin: EdgeInsets.only(
+                  top: model.detailMargin,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(50),
+                    topRight: Radius.circular(50),
+                  ),
+                ),
+                child: Stack(
+                  overflow: Overflow.visible,
+                  children: [
+                    _buildDetail(
+                      context,
+                      onPressed: model.onChangeDetailSize,
+                    ),
+                    Positioned(
+                      top: -25,
+                      right: 25,
+                      child: Consumer<DatabaseProvider>(
+                        builder: (context, value, child) {
+                          return FutureBuilder(
+                            future: value.isFavorite(destination.id),
+                            builder: (context, snapshot) {
+                              bool _isFavorite = snapshot.data ?? false;
 
-                          return _buildFavoriteButton(
-                            isFavorite: _isFavorite,
-                            onPressed: () {
-                              if (_isFavorite) {
-                                provider
-                                    .removeFavorite(destination.id)
-                                    .then((value) {
-                                  if (value) {
-                                    showCustomSnackBar(
-                                      context,
-                                      useContext: true,
-                                      text: "Berhasil menghapus dari favorite!",
-                                      backgroundColor: Colors.green[800],
-                                      textColor: Colors.white,
-                                      duration: Duration(milliseconds: 800),
+                              return _buildFavoriteButton(
+                                isFavorite: _isFavorite,
+                                onPressed: () {
+                                  if (_isFavorite) {
+                                    provider
+                                        .removeFavorite(destination.id)
+                                        .then((value) {
+                                      if (value) {
+                                        showCustomSnackBar(
+                                          context,
+                                          useContext: true,
+                                          text:
+                                              "Berhasil menghapus dari favorite!",
+                                          backgroundColor: Colors.green[800],
+                                          textColor: Colors.white,
+                                          duration: Duration(milliseconds: 800),
+                                        );
+                                      }
+                                    });
+                                  } else {
+                                    FavoriteModel model = new FavoriteModel(
+                                      id: destination.id,
+                                      name: destination.name,
+                                      category: destination.category,
+                                      description: destination.description,
+                                      location: destination.location,
+                                      photoURL: destination.photoURL,
+                                      price: destination.price,
+                                      totalFavorite: destination.totalFavorite,
+                                      subMenu: 'destination',
                                     );
+                                    provider.addFavorite(model).then((value) {
+                                      if (value) {
+                                        showCustomSnackBar(
+                                          context,
+                                          useContext: true,
+                                          text:
+                                              "Berhasil menambahkan ke favorite!",
+                                          backgroundColor: Colors.green[800],
+                                          textColor: Colors.white,
+                                          duration: Duration(milliseconds: 800),
+                                        );
+                                      }
+                                    });
                                   }
-                                });
-                              } else {
-                                FavoriteModel model = new FavoriteModel(
-                                  id: destination.id,
-                                  name: destination.name,
-                                  category: destination.category,
-                                  description: destination.description,
-                                  location: destination.location,
-                                  photoURL: destination.photoURL,
-                                  price: destination.price,
-                                  totalFavorite: destination.totalFavorite,
-                                  subMenu: 'destination',
-                                );
-                                provider.addFavorite(model).then((value) {
-                                  if (value) {
-                                    showCustomSnackBar(
-                                      context,
-                                      useContext: true,
-                                      text: "Berhasil menambahkan ke favorite!",
-                                      backgroundColor: Colors.green[800],
-                                      textColor: Colors.white,
-                                      duration: Duration(milliseconds: 800),
-                                    );
-                                  }
-                                });
-                              }
+                                },
+                              );
                             },
                           );
                         },
-                      );
-                    },
-                  ),
+                      ),
+                    ),
+                  ],
                 ),
-                _buildDetail(context),
-              ],
-            ),
+              );
+            },
           ),
           Positioned(
             top: MediaQuery.of(context).padding.top + 10,
             left: 15,
             child: InkWell(
               onTap: () => Navigation.back(),
-              child: Image.asset(
-                'assets/icons/icon_back.png',
+              child: Container(
                 width: 45,
                 height: 45,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(45),
+                ),
+                child: Image.asset(
+                  'assets/icons/icon_back.png',
+                ),
               ),
             ),
           ),
@@ -151,61 +169,76 @@ class DestinationDetailPage extends StatelessWidget {
     );
   }
 
-  Padding _buildDetail(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(30),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            destination.name ?? '-',
-            style: Theme.of(context)
-                .textTheme
-                .headline5
-                .copyWith(color: primaryDarkColor, fontWeight: FontWeight.w700),
-          ),
-          Text(
-            destination.location ?? 'Jakarta Utara, Indonesia',
-            style: Theme.of(context).textTheme.bodyText2.copyWith(
-                color: primaryDarkColor,
-                fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.w400),
-          ),
-          Container(
-            margin: EdgeInsets.fromLTRB(0, 15, 0, 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                _buildSection(
-                  context,
-                  text: destination.price,
+  Widget _buildDetail(BuildContext context, {Function onPressed}) {
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+        child: SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: double.infinity,
+                alignment: Alignment.center,
+                margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                child: Container(
+                  width: 80,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: primaryDarkColor.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
                 ),
-                _buildSection(
-                  context,
-                  background: primaryRedPriceColor.withOpacity(0.20),
-                  icon: 'assets/icons/icon_submenu_favorite.png',
-                  title: 'Total Favorit',
-                  text: '${destination.totalFavorite}',
+              ),
+              Text(
+                destination.name ?? '-',
+                style: Theme.of(context).textTheme.headline5.copyWith(
+                    color: primaryDarkColor, fontWeight: FontWeight.w700),
+              ),
+              Text(
+                destination.location ?? 'Jakarta Utara, Indonesia',
+                style: Theme.of(context).textTheme.bodyText2.copyWith(
+                    color: primaryDarkColor,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.w400),
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 15, 0, 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    _buildSection(
+                      context,
+                      text: destination.price,
+                    ),
+                    _buildSection(
+                      context,
+                      background: primaryRedPriceColor.withOpacity(0.20),
+                      icon: 'assets/icons/icon_submenu_favorite.png',
+                      title: 'Total Favorit',
+                      text: '${destination.totalFavorite}',
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10, bottom: 5),
+                child: Text(
+                  'Deskripsi',
+                  style: Theme.of(context).textTheme.headline6.copyWith(
+                      color: primaryDarkColor, fontWeight: FontWeight.w600),
+                ),
+              ),
+              Text(
+                destination.description ?? "No description",
+                style: Theme.of(context).textTheme.subtitle2.copyWith(
+                    color: primaryDarkColor, fontWeight: FontWeight.w400),
+              ),
+            ],
           ),
-          Container(
-            margin: EdgeInsets.only(top: 10, bottom: 5),
-            child: Text(
-              'Deskripsi',
-              style: Theme.of(context).textTheme.headline6.copyWith(
-                  color: primaryDarkColor, fontWeight: FontWeight.w600),
-            ),
-          ),
-          Text(
-            destination.description ?? "No description",
-            style: Theme.of(context)
-                .textTheme
-                .subtitle2
-                .copyWith(color: primaryDarkColor, fontWeight: FontWeight.w400),
-          ),
-        ],
+        ),
       ),
     );
   }

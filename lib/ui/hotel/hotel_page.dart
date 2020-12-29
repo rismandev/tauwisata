@@ -5,6 +5,7 @@ import 'package:tauwisata/common/navigation.dart';
 import 'package:tauwisata/data/model/favorite.dart';
 import 'package:tauwisata/data/model/hotel.dart';
 import 'package:tauwisata/data/provider/database_provider.dart';
+import 'package:tauwisata/data/provider/hotel_provider.dart';
 import 'package:tauwisata/ui/hotel/hotel_detail_page.dart';
 import 'package:tauwisata/ui/layouts/app_list_layout.dart';
 import 'package:tauwisata/widgets/card/hotel.dart';
@@ -42,18 +43,23 @@ class HotelPage extends StatelessWidget {
                     physics: NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       HotelModel item = hotels[index];
-                      return Consumer<DatabaseProvider>(
-                        builder: (context, provider, child) {
+                      return Consumer2<DatabaseProvider, HotelProvider>(
+                        builder: (context, provider, hProvider, child) {
                           return HotelCard(
                             id: item.id,
                             photoURL: item.photoURL,
                             title: item.name,
                             location: item.location,
                             description: item.description,
-                            onPressDetail: () => Navigation.navigate(
-                              HotelDetailPage.routeName,
-                              arguments: item,
-                            ),
+                            onPressDetail: () {
+                              if (!hProvider.isMinimum) {
+                                hProvider.onChangeDetailSize();
+                              }
+                              Navigation.navigate(
+                                HotelDetailPage.routeName,
+                                arguments: item,
+                              );
+                            },
                             onPressFavorite: () {
                               FavoriteModel model = new FavoriteModel(
                                 id: item.id,

@@ -23,6 +23,7 @@ class _TakeQuizPageState extends State<TakeQuizPage> {
   PreferencesHelper _preferencesHelper = PreferencesHelper(
     sharedPreferences: SharedPreferences.getInstance(),
   );
+  List<QuizModel> _dataQuiz = List<QuizModel>();
   bool _isAnswered = false;
   int _indexAnswered = 0;
   int _indexQuiz = 0;
@@ -138,14 +139,18 @@ class _TakeQuizPageState extends State<TakeQuizPage> {
               builder: (context, snapshot) {
                 List<QuizModel> questions = parseQuizFromJson(snapshot.data);
 
-                if (questions.length == 0) {
+                if (_dataQuiz.length == 0) {
+                  _dataQuiz = questions;
+                }
+
+                if (_dataQuiz.length == 0) {
                   return Container(
                     alignment: Alignment.center,
                     child: CircularProgressIndicator(),
                   );
                 }
 
-                return _buildContent(context, questions);
+                return _buildContent(context, _dataQuiz);
               },
             ),
           ],
@@ -154,85 +159,86 @@ class _TakeQuizPageState extends State<TakeQuizPage> {
     );
   }
 
-  Column _buildContent(
+  SingleChildScrollView _buildContent(
     BuildContext context,
     List<QuizModel> questions,
   ) {
-    return Column(
-      children: [
-        Container(
-          padding: EdgeInsets.only(
-            top: MediaQuery.of(context).padding.top,
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).padding.top,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _buildTimer(context),
+                _buildQuizCount(
+                  context,
+                  totalCount: questions.length.toString(),
+                ),
+              ],
+            ),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _buildTimer(context),
-              _buildQuizCount(
-                context,
-                totalCount: questions.length.toString(),
-              ),
-            ],
+          _buildQuestion(
+            context,
+            questionName: questions[_indexQuiz].questionName,
           ),
-        ),
-        _buildQuestion(
-          context,
-          questionName: questions[_indexQuiz].questionName,
-        ),
-        Container(
-          width: double.infinity,
-          margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
-          child: AnswerButton(
-            text: questions[_indexQuiz].answer1.value ?? "",
-            disabled: _isAnswered,
-            isCorrect:
-                _indexAnswered != 1 ? AnswerQuestion.DEFAULT : _quizResult,
-            onPressed: () =>
-                _actionAnswer(questions[_indexQuiz].answer1.isAnswered, 1),
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
+            child: AnswerButton(
+              text: questions[_indexQuiz].answer1.value ?? "",
+              disabled: _isAnswered,
+              isCorrect:
+                  _indexAnswered != 1 ? AnswerQuestion.DEFAULT : _quizResult,
+              onPressed: () =>
+                  _actionAnswer(questions[_indexQuiz].answer1.isAnswered, 1),
+            ),
           ),
-        ),
-        Container(
-          width: double.infinity,
-          margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
-          child: AnswerButton(
-            text: questions[_indexQuiz].answer2.value ?? "",
-            disabled: _isAnswered,
-            isCorrect:
-                _indexAnswered != 2 ? AnswerQuestion.DEFAULT : _quizResult,
-            onPressed: () =>
-                _actionAnswer(questions[_indexQuiz].answer2.isAnswered, 2),
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
+            child: AnswerButton(
+              text: questions[_indexQuiz].answer2.value ?? "",
+              disabled: _isAnswered,
+              isCorrect:
+                  _indexAnswered != 2 ? AnswerQuestion.DEFAULT : _quizResult,
+              onPressed: () =>
+                  _actionAnswer(questions[_indexQuiz].answer2.isAnswered, 2),
+            ),
           ),
-        ),
-        Container(
-          width: double.infinity,
-          margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
-          child: AnswerButton(
-            text: questions[_indexQuiz].answer3.value ?? "",
-            disabled: _isAnswered,
-            isCorrect:
-                _indexAnswered != 3 ? AnswerQuestion.DEFAULT : _quizResult,
-            onPressed: () =>
-                _actionAnswer(questions[_indexQuiz].answer3.isAnswered, 3),
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
+            child: AnswerButton(
+              text: questions[_indexQuiz].answer3.value ?? "",
+              disabled: _isAnswered,
+              isCorrect:
+                  _indexAnswered != 3 ? AnswerQuestion.DEFAULT : _quizResult,
+              onPressed: () =>
+                  _actionAnswer(questions[_indexQuiz].answer3.isAnswered, 3),
+            ),
           ),
-        ),
-        Container(
-          width: double.infinity,
-          margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
-          child: AnswerButton(
-            text: questions[_indexQuiz].answer4.value ?? "",
-            disabled: _isAnswered,
-            isCorrect:
-                _indexAnswered != 4 ? AnswerQuestion.DEFAULT : _quizResult,
-            onPressed: () =>
-                _actionAnswer(questions[_indexQuiz].answer4.isAnswered, 4),
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
+            child: AnswerButton(
+              text: questions[_indexQuiz].answer4.value ?? "",
+              disabled: _isAnswered,
+              isCorrect:
+                  _indexAnswered != 4 ? AnswerQuestion.DEFAULT : _quizResult,
+              onPressed: () =>
+                  _actionAnswer(questions[_indexQuiz].answer4.isAnswered, 4),
+            ),
           ),
-        ),
-        if (this._isAnswered) ...[
-          Expanded(
-            child: AnimatedContainer(
+          if (this._isAnswered) ...[
+            AnimatedContainer(
               duration: Duration(milliseconds: 300),
               curve: Curves.easeIn,
               width: double.infinity,
+              padding: EdgeInsets.only(bottom: 30, top: 10),
               alignment: Alignment.center,
               child: RedPrimaryButton(
                 text: questions.length - 1 == _indexQuiz ? "Selesai" : "Lanjut",
@@ -268,9 +274,9 @@ class _TakeQuizPageState extends State<TakeQuizPage> {
                 },
               ),
             ),
-          ),
+          ],
         ],
-      ],
+      ),
     );
   }
 

@@ -8,42 +8,45 @@ class GuidePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        padding:
-            EdgeInsets.fromLTRB(20, MediaQuery.of(context).padding.top, 20, 20),
-        height: SizeConfig.heightMultiplier * 100,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [gradientPrimaryGreen, primaryGreenColor],
+      body: SafeArea(
+        child: Container(
+          width: double.infinity,
+          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+          height: SizeConfig.heightMultiplier * 100,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [gradientPrimaryGreen, primaryGreenColor],
+            ),
           ),
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                margin: EdgeInsets.only(top: 15),
-                child: Text(
-                  'Petunjuk TauWisata',
-                  style:
-                      Theme.of(context).textTheme.headline6.copyWith(shadows: [
-                    BoxShadow(
-                      offset: Offset(0, 1),
-                      color: primaryShadowColor,
-                      blurRadius: 4,
-                      spreadRadius: 0,
-                    ),
-                  ], color: Colors.white, fontWeight: FontWeight.w700),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: 15),
+                  child: Text(
+                    'Petunjuk TauWisata',
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline6
+                        .copyWith(shadows: [
+                      BoxShadow(
+                        offset: Offset(0, 1),
+                        color: primaryShadowColor,
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                      ),
+                    ], color: Colors.white, fontWeight: FontWeight.w700),
+                  ),
                 ),
-              ),
-              _buildQuizGuide(context),
-              _buildDestinationGuide(context),
-              _buildFoodGuide(context),
-              _buildHotelGuide(context),
-              SizedBox(height: 15),
-            ],
+                _buildQuizGuide(context),
+                _buildDestinationGuide(context),
+                _buildFoodGuide(context),
+                _buildHotelGuide(context),
+                SizedBox(height: 15),
+              ],
+            ),
           ),
         ),
       ),
@@ -253,7 +256,7 @@ class GuidePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Kuis berisi 10 soal dengan pertanyaan seputar wisata, makanan, dan penginapan.',
+                  'Kuis berisi 10 soal dengan pertanyaan acak seputar wisata, makanan dan penginapan.',
                   style: Theme.of(context).textTheme.caption.copyWith(
                       color: primaryDarkColor, fontWeight: FontWeight.w600),
                 ),
@@ -271,13 +274,19 @@ class GuidePage extends StatelessWidget {
                 ),
                 SizedBox(height: 5),
                 Text(
-                  'Kuis akan otomatis tersimpan & hanya dapat tersimpan 1.',
+                  'Hasil Kuis akan tersimpan setelah kamu selesai menjawab 10 soal.',
                   style: Theme.of(context).textTheme.caption.copyWith(
                       color: primaryDarkColor, fontWeight: FontWeight.w600),
                 ),
                 SizedBox(height: 5),
                 Text(
-                  'Reset Kuis jika kamu ingin mengulang pertanyaan.',
+                  'Saat ini kamu hanya dapat menyimpan hasil kuis sebanyak 1 kali',
+                  style: Theme.of(context).textTheme.caption.copyWith(
+                      color: primaryDarkColor, fontWeight: FontWeight.w600),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  'Kamu bisa mengulang kuis dengan mereset hasil kuis sebelumnya.',
                   style: Theme.of(context).textTheme.caption.copyWith(
                       color: primaryDarkColor, fontWeight: FontWeight.w600),
                 ),

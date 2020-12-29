@@ -5,10 +5,13 @@ import 'package:tauwisata/common/sizeconfig.dart';
 import 'package:tauwisata/common/styles.dart';
 import 'package:tauwisata/data/helper/database_helper.dart';
 import 'package:tauwisata/data/provider/database_provider.dart';
+import 'package:tauwisata/data/provider/destination_provider.dart';
+import 'package:tauwisata/data/provider/food_provider.dart';
+import 'package:tauwisata/data/provider/hotel_provider.dart';
 import 'package:tauwisata/ui/dashboard_page.dart';
 import 'package:tauwisata/ui/destination/destination_page.dart';
 import 'package:tauwisata/ui/destination/destination_detail_page.dart';
-import 'package:tauwisata/ui/favorite_page.dart';
+import 'package:tauwisata/ui/favorite/favorite_page.dart';
 import 'package:tauwisata/ui/foods/food_detail_page.dart';
 import 'package:tauwisata/ui/guide_page.dart';
 import 'package:tauwisata/ui/hotel/hotel_detail_page.dart';
@@ -27,7 +30,10 @@ void main() {
           create: (context) => DatabaseProvider(
             databaseHelper: DatabaseHelper(),
           ),
-        )
+        ),
+        ChangeNotifierProvider(create: (context) => DestinationProvider()),
+        ChangeNotifierProvider(create: (context) => FoodProvider()),
+        ChangeNotifierProvider(create: (context) => HotelProvider()),
       ],
       child: MyApp(),
     ),

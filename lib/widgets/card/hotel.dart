@@ -12,6 +12,8 @@ class HotelCard extends StatelessWidget {
   final String description;
   final Function onPressFavorite;
   final Function onPressDetail;
+  final bool useRemoveFunction;
+  final double marginTop;
 
   const HotelCard({
     Key key,
@@ -22,6 +24,8 @@ class HotelCard extends StatelessWidget {
     this.onPressFavorite,
     this.onPressDetail,
     @required this.id,
+    this.useRemoveFunction = false,
+    this.marginTop,
   }) : super(key: key);
 
   @override
@@ -29,7 +33,7 @@ class HotelCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 150,
-      margin: EdgeInsets.fromLTRB(20, 0, 20, 15),
+      margin: EdgeInsets.fromLTRB(20, marginTop ?? 0, 20, 15),
       decoration: _decoratedBox(),
       child: Row(
         children: [
@@ -93,7 +97,7 @@ class HotelCard extends StatelessWidget {
                         builder: (context, snapshot) {
                           bool _isFavorite = snapshot.data ?? false;
 
-                          if (_isFavorite) {
+                          if (_isFavorite & !useRemoveFunction) {
                             return _buildHasFavorite(context);
                           }
                           return InkWell(
@@ -101,7 +105,7 @@ class HotelCard extends StatelessWidget {
                             child: Container(
                               width: double.infinity,
                               child: Text(
-                                'Tambahkan ke favorit',
+                                '${useRemoveFunction ? 'Hapus dari' : 'Tambah ke'} favorit',
                                 style: Theme.of(context)
                                     .textTheme
                                     .caption

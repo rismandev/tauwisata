@@ -189,6 +189,25 @@
                 "value": "Gunung Rinjani",
                 "is_answered": false
             }
+        },
+        {
+            "question_name": "Salah satu tempat wisata yang berada di Daerah Kota Majalengka adalah...",
+            "answer_1": {
+                "value": "Pantai Parangtritis",
+                "is_answered": false
+            },
+            "answer_2": {
+                "value": "Wisata Danau Toba",
+                "is_answered": false
+            },
+            "answer_3": {
+                "value": "Situ Cipanten",
+                "is_answered": true
+            },
+            "answer_4": {
+                "value": "Taman Bunga Nusantara",
+                "is_answered": false
+            }
         }
     ]
 }

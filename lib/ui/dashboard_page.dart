@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tauwisata/common/functions.dart';
 import 'package:tauwisata/common/navigation.dart';
 import 'package:tauwisata/common/sizeconfig.dart';
 import 'package:tauwisata/common/styles.dart';
+import 'package:tauwisata/data/helper/database_helper.dart';
 import 'package:tauwisata/data/helper/preferences_helper.dart';
+import 'package:tauwisata/data/provider/database_provider.dart';
 import 'package:tauwisata/ui/destination/destination_page.dart';
-import 'package:tauwisata/ui/favorite_page.dart';
+import 'package:tauwisata/ui/favorite/favorite_page.dart';
 import 'package:tauwisata/ui/guide_page.dart';
 import 'package:tauwisata/ui/hotel/hotel_page.dart';
 import 'package:tauwisata/ui/quiz/take_quiz_page.dart';
@@ -24,9 +27,13 @@ class _DashboardPageState extends State<DashboardPage> {
   PreferencesHelper _preferencesHelper = PreferencesHelper(
     sharedPreferences: SharedPreferences.getInstance(),
   );
+  DatabaseProvider _provider = DatabaseProvider(
+    databaseHelper: DatabaseHelper(),
+  );
 
   @override
   Widget build(BuildContext context) {
+    this._provider = Provider.of<DatabaseProvider>(context);
     return Scaffold(
       body: Column(
         children: [
@@ -82,9 +89,11 @@ class _DashboardPageState extends State<DashboardPage> {
                       _buildSubMenu(
                         text: 'Favorit',
                         icon: 'assets/icons/icon_submenu_favorite.png',
-                        onPressed: () => Navigation.navigate(
-                          FavoritePage.routeName,
-                        ),
+                        onPressed: () {
+                          _provider.getFavorites().then((value) {
+                            Navigation.navigate(FavoritePage.routeName);
+                          });
+                        },
                       ),
                       _buildSubMenu(
                         text: 'Petunjuk',
@@ -180,19 +189,19 @@ class _DashboardPageState extends State<DashboardPage> {
   Container _buildHeader() {
     return Container(
       width: double.infinity,
-      height: SizeConfig.heightMultiplier * 45,
-      margin: EdgeInsets.only(bottom: 10),
+      margin: EdgeInsets.only(bottom: 20),
       child: Stack(
+        overflow: Overflow.visible,
         children: [
           Container(
             width: double.infinity,
             child: Image.asset(
               'assets/images/dashboard_header.png',
-              fit: BoxFit.fitWidth,
+              fit: BoxFit.cover,
             ),
           ),
           Positioned(
-            bottom: 0,
+            bottom: -15,
             left: 0,
             right: 0,
             child: Row(

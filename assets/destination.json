@@ -109,6 +109,46 @@
             "id": "destination-id11",
             "category": "budaya",
             "total_favorite": 4300
+        },
+        {
+            "photo": "https://travelspromo.com/wp-content/uploads/2019/07/Menyusuri-keindahan-panorama-Pantai-Parangtritis-Bantul-semilir-angin-makin-terasa-di-atas-kereta-kuda-Calvin-Lee-e1565249764627.jpg",
+            "name": "Pantai Parangtritis",
+            "description": "Pantai Parangtritis terletak 27 km selatan Kota Jogja dan mudah dicapai dengan transportasi umum yang beroperasi hingga pk 17.00 maupun kendaraan pribadi. Sore menjelang matahari terbenam adalah saat terbaik untuk mengunjungi pantai paling terkenal di Yogyakarta ini. Namun bila Anda tiba lebih cepat, tak ada salahnya untuk naik ke Tebing Gembirawati di belakang pantai ini. Dari sana kita bisa melihat seluruh area Pantai Parangtritis, laut selatan, hingga ke batas cakrawala.",
+            "location": "Bantul, DI Yogyakarta",
+            "price": "15.000",
+            "id": "destination-id12",
+            "category": "bahari",
+            "total_favorite": 4730
+        },
+        {
+            "photo": "https://travelandword.com/wp-content/uploads/2020/07/lokasi-situ-cipanten-majalengka.jpg",
+            "name": "Situ Cipanten",
+            "description": "Situ Cipanten merupakan Tempat wisata alam yang memiliki suasananya adem dan sejuk, sehingga pantas menjadi tempat favorit warga majalengka dan sekitar untuk berlibur sekaligus menenangkan diri. Dalam kondisi cuaca cerah, air Situ Cipanten seakan membiru dan sangat jernih hingga terlihat dasar situ yang berkedalaman dua meter tersebut. Tak puas memandang telaga biru, banyak pengunjung yang menceburkan dirinya untuk berenang diantara beningnya air Situ.",
+            "location": "Majalengka, Jawa Barat",
+            "price": "35.000",
+            "id": "destination-id13",
+            "category": "alam",
+            "total_favorite": 6730
+        },
+        {
+            "photo": "https://asset.kompas.com/crops/qWojwyqF7oqk9L4FveL_yc_Dvrg=/0x0:1280x853/750x500/data/photo/2019/12/31/5e0ae89b3e942.jpeg",
+            "name": "Gedung Sate",
+            "description": "Gedung ini adalah sebuah bangunan bersejarah yang ada di pusat kota Bandung. Disebut sebagai Gedung Sate karena gedung ini mempunyai ciri khas yang unik, yaitu ornamen 6 tusuk sate yang ada di atas menara sentral. 6 tusuk sate ini melambangkan 6 juta Gulden yang dipakai untuk membangun gedung berwarna putih ini pada masanya. Gedung ini sangat terkenal tidak hanya di kota Bandung saja, melainkan juga sudah terkenal di Jawa Barat Indonesia.",
+            "location": "Bandung, Jawa Barat",
+            "price": "5.000",
+            "id": "destination-id14",
+            "category": "budaya",
+            "total_favorite": 2730
+        },
+        {
+            "photo": "https://cdn.idntimes.com/content-images/post/20190812/67117599-194027181594208-2300964593094393295-n-289a5f1fdf55140bddefd7bd1ceedfc3_600x400.jpg",
+            "name": "Pantai Ujung Genteng",
+            "description": "Pantai Ujung Genteng adalah salah satu obyek wisata yang ada di ujung paling barat provinsi Jawa Barat. Pantai ini berada di Desa Ujung Genteng, Kecamatan Ciracap, Kabupaten Sukabumi, Jawa Barat. Lokasinya cukup jauh dari pusat kota Sukabumi yaitu sekitar 110,9 kilometer yang jika ditempuh dengan kendaraan, akan memakan waktu sekitar 3 jam lebih.",
+            "location": "Bandung, Jawa Barat",
+            "price": "15.000",
+            "id": "destination-id15",
+            "category": "bahari",
+            "total_favorite": 4730
         }
     ]
 }

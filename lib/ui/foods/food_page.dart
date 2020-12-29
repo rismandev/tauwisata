@@ -5,6 +5,7 @@ import 'package:tauwisata/common/navigation.dart';
 import 'package:tauwisata/data/model/favorite.dart';
 import 'package:tauwisata/data/model/food.dart';
 import 'package:tauwisata/data/provider/database_provider.dart';
+import 'package:tauwisata/data/provider/food_provider.dart';
 import 'package:tauwisata/ui/foods/food_detail_page.dart';
 import 'package:tauwisata/ui/layouts/app_list_layout.dart';
 import 'package:tauwisata/widgets/card/food.dart';
@@ -41,18 +42,23 @@ class FoodPage extends StatelessWidget {
                     physics: NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       FoodModel item = foods[index];
-                      return Consumer<DatabaseProvider>(
-                        builder: (context, provider, child) {
+                      return Consumer2<DatabaseProvider, FoodProvider>(
+                        builder: (context, provider, fProvider, child) {
                           return FoodCard(
                             id: item.id,
                             photoURL: item.photoURL,
                             title: item.name,
                             location: item.location,
                             description: item.description,
-                            onPressDetail: () => Navigation.navigate(
-                              FoodDetailPage.routeName,
-                              arguments: item,
-                            ),
+                            onPressDetail: () {
+                              if (!fProvider.isMinimum) {
+                                fProvider.onChangeDetailSize();
+                              }
+                              Navigation.navigate(
+                                FoodDetailPage.routeName,
+                                arguments: item,
+                              );
+                            },
                             onPressFavorite: () {
                               FavoriteModel model = new FavoriteModel(
                                 id: item.id,

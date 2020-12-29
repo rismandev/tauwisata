@@ -61,8 +61,8 @@ class _SettingsPageState extends State<SettingsPage> {
             margin: EdgeInsets.only(bottom: 20),
             alignment: Alignment.center,
             child: Text(
-              'Copyright \u00a9 Developed by Risman Abdilah',
-              style: Theme.of(context).textTheme.bodyText2.copyWith(
+              'Copyright \u00a9 2020 by Risman Abdilah',
+              style: Theme.of(context).textTheme.caption.copyWith(
                   color: primaryDarkColor, fontWeight: FontWeight.w500),
             ),
           ),

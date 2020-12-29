@@ -7,6 +7,7 @@ import 'package:tauwisata/common/styles.dart';
 import 'package:tauwisata/data/model/destination.dart';
 import 'package:tauwisata/data/model/favorite.dart';
 import 'package:tauwisata/data/provider/database_provider.dart';
+import 'package:tauwisata/data/provider/destination_provider.dart';
 import 'package:tauwisata/ui/destination/destination_detail_page.dart';
 import 'package:tauwisata/ui/layouts/app_list_layout.dart';
 import 'package:tauwisata/widgets/card/destination.dart';
@@ -137,18 +138,23 @@ class _DestinationPageState extends State<DestinationPage> {
                     physics: NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       DestinationModel item = destinations[index];
-                      return Consumer<DatabaseProvider>(
-                        builder: (context, provider, child) {
+                      return Consumer2<DatabaseProvider, DestinationProvider>(
+                        builder: (context, provider, dProvider, child) {
                           return DestinationCard(
                             id: item.id,
                             photoURL: item.photoURL,
                             title: item.name,
                             location: item.location,
                             description: item.description,
-                            onPressDetail: () => Navigation.navigate(
-                              DestinationDetailPage.routeName,
-                              arguments: item,
-                            ),
+                            onPressDetail: () {
+                              if (!dProvider.isMinimum) {
+                                dProvider.onChangeDetailSize();
+                              }
+                              Navigation.navigate(
+                                DestinationDetailPage.routeName,
+                                arguments: item,
+                              );
+                            },
                             onPressFavorite: () {
                               FavoriteModel model = new FavoriteModel(
                                 id: item.id,

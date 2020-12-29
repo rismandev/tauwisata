@@ -19,6 +19,36 @@
             "id": "hotel-id02",
             "category": "premium",
             "total_favorite": 2700
+        },
+        {
+            "photo": "https://bogorvalleyhotel.com/wp-content/uploads/2020/07/Dlx-king-600x380.jpg",
+            "name": "Bogor Valley Hotel",
+            "description": "Dapat dicapai dalam 10 menit dengan berkendara dari Istana Kepresidenan Bogor yang ikonik, Bogor Valley Hotel menawarkan akomodasi modern dan nyaman dengan akses Wi-Fi gratis di seluruh areanya serta tempat parkir pribadi gratis di lokasinya. Kebun Raya Bogor yang terkenal dapat dijangkau dalam 10 menit dengan berkendara dari hotel. Tersedia layanan antar-jemput gratis terjadwal dari hotel ke Stasiun Damri Bogor. Bandara Internasional Soekarno-Hatta dapat dijangkau dalam 2 jam dengan berkendara. Hotel ini menawarkan layanan antar-jemput bandara dengan biaya tambahan.",
+            "location": "Bogor, Jawa Barat",
+            "price": "350.000",
+            "id": "hotel-id03",
+            "category": "regular",
+            "total_favorite": 4240
+        },
+        {
+            "photo": "https://i0.wp.com/www.tempatwisatamu.com/wp-content/uploads/2015/03/Papandayan-Hotel-Bandung.jpg?resize=400%2C278",
+            "name": "The Papandayan",
+            "description": "The Papandayan Hotel menyediakan 170 lebih kamar yang dapat Anda pilih sesuai keinginan. Setiap kamar didesain dengan interior yang elegan sehingga tampak mewah dan berkelas. Hotel ini memang merupakan hotel bintang 5 yang layak untuk Anda pilih. Tidak hanya didukung dengan interior kamar yang mewah, tetapi hotel ini juga menawarkan fasilitas dan pelayanan yang memuaskan untuk tamu yang berkunjung. Beberapa diantaranya yaitu ruang meeting dan juga ballroom dengan ukuran yang sangat luas serta desain mewah. Terdapat pula kolam renang outdoor, spa, fitness bahkan salon kecantikan.",
+            "location": "Bandung, Jawa Barat",
+            "price": "1.100.000",
+            "id": "hotel-id04",
+            "category": "premium",
+            "total_favorite": 3240
+        },
+        {
+            "photo": "https://media-cdn.tripadvisor.com/media/oyster/1180/0e/76/62/24/pool--v15093163.jpg",
+            "name": "Green Forest Resort",
+            "description": "Green Forest Resort merupakan pilihan terbaik untuk beristirahat dan memulihkan diri. Terkenal akan suasana yang menawan dan lokasinya yang dekat dengan restoran dan tempat terkenal, Green Forest Resort membuat Anda mudah untuk menikmati Bandung yang terbaik. Kamar memiliki tv layar datar, dan Anda dapat menggunakan internet, karena wi-fi gratis tersedia, sehingga Anda dapat beristirahat dan menyegarkan diri dengan mudah. Green Forest Resort menawarkan resepsionis 24 jam, layanan kamar, dan layanan concierge. Sebagai tamu Green Forest Resort, Anda dapat menikmati kolam renang dan sarapan yang tersedia di properti. Para tamu yang mengemudi memiliki akses ke tempat parkir gratis.",
+            "location": "Bandung, Jawa Barat",
+            "price": "450.000",
+            "id": "hotel-id05",
+            "category": "regular",
+            "total_favorite": 2740
         }
     ]
 }
